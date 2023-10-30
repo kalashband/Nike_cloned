@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque&family=Kanit:ital,wght@1,300&family=Pacifico&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque&family=Fjalla+One&family=Kanit:ital,wght@1,300&family=Pacifico&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque&family=Fjalla+One&family=Kanit:ital,wght@1,300&family=Open+Sans&family=Pacifico&display=swap');
+
+
+.firstcontainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: whitesmoke;
+}
+
+.box1 {
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+}
+
+.box2 {
+    width: 100%;
+    margin-top: 3px;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 8px;
+    font-size: 16px;
+}
+
+.box2 a {
+    margin-left: 12px;
+    color: black;
+}
+
+/* ---- Navebar ---- */
+
+.NaveContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.logo {
+    margin-left: 16px;
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+}
+
+.menu {
+    position: relative;
+    width: 20%;
+    margin-top: 13px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 8px;
+    font-size: 16px;
+}
+
+
+.searchbox {
+    display: none;
+    position: absolute;
+    top: px;
+    right: 305px;
+}
+
+.searchbox input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.fas {
+    font-size: 25px;
+    cursor: pointer;
+    justify-content: space-between;
+    user-select: none;
+    color: rgb(0, 0, 0);
+}
+
+
+button {}
+
+
+#child-4 {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#child-4 i {
+    cursor: pointer;
+}
+
+#child-4 li {
+    display: inline;
+    margin-right: 20px;
+    position: relative;
+}
+
+.dropContent {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+#child-4:hover .dropContent {
+    display: block;
+}
+
+.dropContent a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dropContent a:hover {
+    background-color: rebeccapurple;
+    color: white;
+}
+
+
+
+.secondContainer {
+    background-color: #fffcfc;
+    margin-top: 5px;
+    text-align: center;
+    padding-top: 5px;
+    height: 45px;
+    width: 60%;
+    margin-left: 20%;
+    color: black;
+    line-height: 13px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.applink {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#videoFirst {
+    /* border: 2px solid red; */
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#infinity {
+    /* background-color: bisque; */
+    text-align: center;
+    padding-top: 20px;
+    line-height: 20px;
+    font-family: "Helvetica Now Text", Helvetica, Arial, sans-serif;
+    /* font-weight:600; */
+}
+
+#NikeRN4 {
+    font-size: larger;
+    font-weight: bold;
+}
+
+#support {
+    font-weight: bolder;
+    font-family: 'Anton', sans-serif;
+    line-height: 1.2;
+    font-size: 55px;
+}
+
+#ReactX {
+    margin-top: 24px;
+}
+
+button {
+    margin-bottom: 2px;
+    color: white;
+    background-color: black;
+    /* font-weight: bold; */
+    font-size: 16px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#shop {
+    width: 70px;
+    height: 30px;
+}
+
+#Retro {
+    display: flex;
+    padding-top: 20px;
+}
+
+#Trending {
+    margin-left: 50px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+}
+
+.textImg1 {
+    position: absolute;
+    /* bottom: -130%;
+    left: 120px; */
+    margin-top: -150px;
+    margin-left: 45px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 19px;
+}
+
+.textImg2 {
+    position: absolute;
+    margin-top: -150px;
+    margin-left: 45px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 19px;
+}
+
+.Essentials {
+    margin-left: 45px;
+    /* border: 1px solid black; */
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+
+}
+
+#TheEssentials {
+    position: relative;
+    margin-left: 45px;
+    padding-top: 25px;
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Essentials img {
+    /* grid: 1; */
+    /* border: 0.5px solid blue; */
+    margin-top: 16px;
+    height: 620px;
+    width: 97%;
+
+}
+
+.shopbutton button {
+    position: relative;
+    bottom: -89%;
+    left: 41px;
+    padding: 5px;
+    color: black;
+    background-color: white;
+    border: none;
+    outline: none;
+}
+
+.Always_Iconic {
+    position: relative;
+    margin-left: 45px;
+    padding-top: 25px;
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Always {
+    overflow: hidden;
+    height: 332px;
+}
+
+.Always-Shoes {
+    display: flex;
+    margin-left: 45px;
+    padding-top: 25px;
+}
+
+.Always-Shoes-name {
+    display: inline-flex;
+    margin-left: 45px;
+    padding-top: 20px;
+
+}
+/* 
+display: flex;
+position: absolute;
+top: 770%;
+color: red;
+left: 3%; */
+
+.Always-Shoes-name h {
+    width: 195px;
+    font-size: 16px;
+    text-align: left;
+    /* padding-right: 212px; */
+    margin-right: 51px;
+    overflow-wrap: normal;
+    font-size: 17px;
+    font-weight: 500;
+    color: #7e7e7e;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Always-Shoes img {
+    height: 300px;
+    width: 340px;
+    padding-right: 5px;
+}
+
+.btn-area {
+    position: relative;
+    bottom: 50%;
+    left: 50%;
+
+
+}
+
+.btn-area button {
+    background-color: white;
+    border-radius: 50%;
+    font-size: 18px;
+    padding: 8px 13px;
+    transition: 0.4s;
+
+}
+
+#btn-prev {
+    position: relative;
+    right: 45%;
+    border: none;
+    outline: none;
+}
+
+#btn-next {
+    position: relative;
+    left: 41%;
+    border:none;
+    outline: none;
+}
+
+
+#Footer {
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    /* margin-left: 35px; */
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 70px;
+    background-color: black;
+    color: #f1f1f1;
+
+}
+
+
+.footer-start {
+    display: flex;
+    /* align-items: center; */
+    /* padding-left: 20px; */
+
+}
+
+.unorderList1 {
+    color: white;
+    display: grid;
+    line-height: 27px;
+    margin-right: 60px;
+
+}
+
+.unorderList1>a {
+    color: white;
+    text-decoration: none;
+
+}
+
+li {
+    list-style: none;
+    font-size: 12px;
+    margin-top: 5px;
+    color: gray;
+    /* background-color: transparent; */
+    font-family: 'Open Sans', sans-serif;
+    line-height: 27px;
+    margin-right: 60px;
+}
+
+.social {
+    color: #f1f1f1;
+    padding-right: 50px;
+    display: flex;
+    text-align: end;
+    justify-content: end;
+    font-size: 25px;
+}
+
+.social>div {
+    margin-right: 15px;
+    color: rgb(126, 126, 126);
+}
+
+.bottom-Footer {
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: black;
+    color: #f1f1f1;
+}
+
+.india>a {
+    color: white;
+    text-decoration: none;
+}
+
+.terms>a {
+    color: white;
+    text-decoration: none;
+    justify-content: space-between;
+    margin-left: 15px;
+}
