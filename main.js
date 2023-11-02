@@ -109,12 +109,17 @@ const always_shoes_name = document.querySelector('.Always-Shoes-name');
 
 // create Image element from product array
 products.forEach(product => {
-
     const img = document.createElement('img');
     img.src = product.imgUrl;
     img.alt = product.name;
     always_shoes.appendChild(img);
-    console.log(img);
+
+    // added anker tag outside of img tag 
+    const link = document.createElement('a');
+    link.href = "description.html";
+    link.appendChild(img);
+    always_shoes.appendChild(link);
+    console.log(link);
 
     // const displayName = document.createElement('h');
     // displayName.textContent = product.name;

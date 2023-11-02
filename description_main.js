@@ -2,13 +2,22 @@
 
 var products = [
     {
+        imgUrl: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/c14889cd-1fde-4395-9f14-401ea8276df8/utility-heat-graphic-training-backpack-n8XJNC.png",
+        name: "Nike Utility Heat",
+        category: "Backpack",
+        brand: "NikePro",
+        color: "Black",
+        Price: 3995,
+        Size: ["S", "M", "L", "XL"]
+    },
+    {
         imgUrl: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/18ac3091-5615-4b51-b833-f3d8f909b35c/vomero-16-road-running-shoes-h0KMSg.png",
         name: "Nike Vomero 16",
         brand: " Vomero",
         category: "Men Shoes",
         color: "Photon Dust/Light Crimson/White/Black",
         Price: "12,815.00",
-        Size: ["UK 6" , "UK 6.5" , "UK 7" , "UK 7.5" , "UK 9" , "UK 9.5" , "UK 10" , "UK 10.5" , " UK 11 " , "UK 11.5" , "UK 12" ]
+        Size: ["UK 6", "UK 6.5", "UK 7", "UK 7.5", "UK 9", "UK 9.5", "UK 10", "UK 10.5", " UK 11 ", "UK 11.5", "UK 12"]
     },
     {
         imgUrl: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/833a3530-cd6c-4e27-a994-1ac4487e6a77/dunk-high-retro-shoe-DdRmMZ.png",
@@ -17,7 +26,7 @@ var products = [
         category: "Men Shoes",
         color: "Team Blue",
         Price: "8,827",
-        Size: ["UK 6" , "UK 6.5" , "UK 7" , "UK 7.5" , "UK 9" , "UK 9.5" , "UK 10" , "UK 10.5" , " UK 11 " , "UK 11.5" , "UK 12" ]
+        Size: ["UK 6", "UK 6.5", "UK 7", "UK 7.5", "UK 9", "UK 9.5", "UK 10", "UK 10.5", " UK 11 ", "UK 11.5", "UK 12"]
     },
     {
         imgUrl: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b04d4c27-d586-46c7-809e-6b0de2bb0480/air-force-1-high-07-lx-shoes-wb31gJ.png",
@@ -92,7 +101,7 @@ var products = [
 ]
 
 var sizesContainer = document.getElementById('SizeBox');
-var sizes = products[1].Size;
+var sizes = products[0].Size;
 
 // Create label elements for each size and append to the container
 sizes.forEach(Size => {
