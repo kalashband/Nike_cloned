@@ -1,3 +1,4 @@
+
 var products = [
     {
         imgUrl: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/614a4c83-3787-4815-9cab-88b6653ea95d/ja-dri-fit-pullover-basketball-hoodie-Cp748n.png",
@@ -349,7 +350,7 @@ var products = [
     {
         imgUrl: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/18ac3091-5615-4b51-b833-f3d8f909b35c/vomero-16-road-running-shoes-h0KMSg.png",
         name: "Nike Vomero 16",
-        brand: " Vomero",
+        brand: "Vomero",
         category: "Men Shoes",
         color: "Photon Dust/Light Crimson/White/Black",
         Price: 12815.00,
@@ -387,7 +388,7 @@ var products = [
         imgUrl: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/1fafd11f-7315-4dea-98f4-d762e999ebfe/air-max-systm-shoes-l4RjXF.png",
         name: "Air Jordan 1 Elevate High",
         brand: "Jordan ",
-        category: "Women's Shoes",
+        category: "Men Shoes",
         color: "Team Gold/Sail",
         Price: 14827,
         Size: ["UK 3", "UK 3.5", "UK 4", "UK 4.5", "UK 5", "UK 5.5", "UK 6 ", "UK 6.5", "UK 7 "]
@@ -397,7 +398,7 @@ var products = [
         imgUrl: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/572a3c3d-8244-4e32-add1-99a080db2a60/air-griffey-max-1-mens-shoes-6q83v3.png",
         name: "Nike Air Griffey Max 1",
         brand: "Air Force",
-        category: "Men's Shoes",
+        category: "Men Shoes",
         color: "Pure Platinum/White",
         Price: 15527,
         Size: ["UK 6 ", "UK 6.5", "UK 7 ", "UK 7.5 ", "UK 9,", "UK 9.5", "UK 10", "UK 10.5", " UK 11, ", "UK 11.5", "UK 12"]
@@ -407,7 +408,7 @@ var products = [
         imgUrl: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/d3a4c6c9-8303-4733-b6a3-d17c00cf8dab/daybreak-shoes-bs1J78.png",
         name: "Nike Daybreak",
         brand: "Nike Daybreak",
-        category: "Women's Shoes",
+        category: "Men Shoes",
         color: "Coconut Milk/Light Bone",
         Price: 7597,
         Size: ["UK 3", "UK 3.5", "UK 4", "UK 4.5", "UK 5", "UK 5.5", "UK 6 ", "UK 6.5", "UK 7 "]
@@ -417,7 +418,7 @@ var products = [
         imgUrl: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/d3ed7f3d-cf40-4ae1-bfb8-2f73a9f9cec6/air-force-1-pltaform-shoes-pwWPHX.png",
         name: "Nike Air Force 1 PLT.AF.ORM",
         brand: "Air Force",
-        category: "Women's Shoes",
+        category: "Men Shoes",
         color: "Photon Dust/Team Gold",
         Price: 6087,
         Size: ["UK 3", "UK 3.5", "UK 4", "UK 4.5", "UK 5", "UK 5.5", "UK 6 ", "UK 6.5", "UK 7 "]
@@ -426,8 +427,8 @@ var products = [
     {
         imgUrl: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/pyyixbczj6u5kiwhpjik/air-max-270-shoes-V4DfZQ.png",
         name: "Nike Air Max 270",
-        brand: " Air Max",
-        category: "Women's Shoes",
+        brand: "Air Max",
+        category: "Men Shoes",
         color: "White/White/Black",
         Price: 13287,
         Size: ["UK 3", "UK 3.5", "UK 4", "UK 4.5", "UK 5", "UK 5.5", "UK 6 ", "UK 6.5", "UK 7 "]
@@ -435,9 +436,14 @@ var products = [
 ];
 
 localStorage.setItem("Men's Products ", JSON.stringify(products));
+ShowProduct(products);
 
 document.querySelector("#Lifestyle-2").textContent = "Men's Lifestyle " + "(" + products.length + ")";
 
+function ClearAll() {
+    location.reload();
+    console.log("hello clear");
+}
 
 function CategoriesFilter() {
     var cateSelect = document.querySelector("#cateBtn").value;
@@ -445,95 +451,86 @@ function CategoriesFilter() {
     var NewProdArr = products.filter(function (element) {
         return element.category === cateSelect;
     });
-    // console.log(NewProdArr);
+    console.log(NewProdArr);
     ShowProduct(NewProdArr);
 }
 
 function brandFilter() {
     var brandSelect = document.querySelector("#BrandFilter").value;
     console.log(brandSelect);
+    var NewProdArr = products.filter(function (element) {
+        return element.brand === brandSelect;
+    })
+    console.log(NewProdArr);
+    ShowProduct(NewProdArr);
 }
 
 function priceSort() {
-    var priceSelect= document.querySelector("#Pricebtn").value;
-    // console.log(priceSelect);
+    var priceSelect = document.querySelector("#Pricebtn").value;
+    console.log(priceSelect);
 
     if (priceSelect == "Low") {
-        products.sort(function(a,b){
+        products.sort(function (a, b) {
             return a.Price - b.Price;
         })
     }
 
     if (priceSelect == "High") {
-        products.sort(function(a,b){
+        products.sort(function (a, b) {
             return b.Price - a.Price;
         })
     }
     console.log(products);
-    ProductShow(products)
+    ShowProduct(products)
 }
 
-
-
-function ProductShow(product) {
-    var product_list = document.getElementById('product-list');
-
-    var div = document.createElement('div');
-    div.classList.add('listElement');
-
-    var img = document.createElement('img');
-    img.src = product.imgUrl;
-    div.appendChild(img);
-
-    var name = document.createElement('p');
-    name.textContent = product.name;
-    div.appendChild(name);
-
-    var category = document.createElement('p');
-    category.textContent = product.category;
-    div.appendChild(category);
-
-    var price = document.createElement('p');
-    price.textContent = "MRP : ₹ " + product.Price;
-    div.appendChild(price);
-
-    product_list.appendChild(div);
-
-}
 
 // display function
 
-function ShowProduct(product) {
+function ShowProduct(products) {
+    console.log(products, "prodddd")
+
     var product_list = document.getElementById('product-list');
 
-    var div = document.createElement('div');
-    div.classList.add('listElement');
+    document.querySelector("#product-list").textContent = "";  // when ever Showproduct function call first it will first empty the product-list class div
 
-    var img = document.createElement('img');
-    img.src = product.imgUrl;
-    div.appendChild(img);
+    products.map((product) => {
+        var div = document.createElement('div');
+        div.classList.add('listElement');
+        div.addEventListener("click", ShowDesc);
 
-    var name = document.createElement('p');
-    name.textContent = product.name;
-    div.appendChild(name);
+        var img = document.createElement('img');
+        img.src = product.imgUrl;
+        div.appendChild(img);
 
-    var category = document.createElement('p');
-    category.textContent = product.category;
-    div.appendChild(category);
+        var name = document.createElement('p');
+        name.textContent = product.name;
+        div.appendChild(name);
 
-    var price = document.createElement('p');
-    price.textContent = "MRP : ₹ " + product.Price;
-    div.appendChild(price);
+        var category = document.createElement('p');
+        category.textContent = product.category;
+        div.appendChild(category);
 
-    product_list.appendChild(div);
+        var price = document.createElement('p');
+        price.textContent = "MRP : ₹ " + product.Price;
+        div.appendChild(price);
 
+        product_list.appendChild(div);
+
+        function ShowDesc(event) {
+            console.log("show Desc");
+            DescProd(product);
+        }
+    })
+    function DescProd(product) {
+        var product_pg = [];
+
+        product_pg.push(product);
+        console.log(product_pg);
+
+        localStorage.setItem("DescProd", JSON.stringify(product_pg));
+        window.location.href = "description.html";
+
+    }
 }
-document.addEventListener('DOMContentLoaded', function () {
-    products.forEach(ShowProduct);
-});
 
-
-
-function ClearAll() {
-    location.reload();
-}
