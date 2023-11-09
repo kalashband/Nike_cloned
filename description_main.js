@@ -101,11 +101,50 @@ var products = [
 ]
 
 var sizesContainer = document.getElementById('SizeBox');
-var sizes = products[0].Size;
+// var sizes = products[0].Size;
 
 // Create label elements for each size and append to the container
-sizes.forEach(Size => {
-    var label = document.createElement('button');
-    label.textContent = Size;
-    sizesContainer.appendChild(label);
-});
+// sizes.forEach(Size => {
+//     var label = document.createElement('button');
+//     label.textContent = Size;
+//     sizesContainer.appendChild(label);
+// });
+
+
+var menProducts = JSON.parse(localStorage.getItem("DescProd"));
+console.log(menProducts);
+
+displayProduct(menProducts);
+
+function displayProduct(elem) {
+    menProducts.filter(function (elem) {
+        var img = document.getElementById("img_link");
+        img.setAttribute("src", elem.imgUrl);
+        console.log(img);
+
+        var name = document.getElementById("Namebox");
+        name.textContent = elem.name;
+        console.log(name);
+
+        var category = document.getElementById("cathBox");
+        category.textContent = elem.category;
+        console.log(category);
+
+        var Price = document.getElementById("PriceBox");
+        Price.textContent = "MRP : Rs " + elem.Price;
+        console.log(Price);
+
+        var size = document.getElementById("SizeBox");
+        // console.log(size);
+        var elemSize = elem.Size;
+        // console.log(elemSize);
+
+        elemSize.forEach(Size => {
+            // console.log(Size);
+            var label = document.createElement('button');
+            label.textContent = Size;
+            sizesContainer.appendChild(label);
+        });
+
+    })
+}

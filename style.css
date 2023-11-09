@@ -130,7 +130,7 @@ button {
 }
 
 .dropContent a:hover {
-    background-color: rebeccapurple;
+    background-color: rgb(0, 0, 0);
     color: white;
 }
 
@@ -201,9 +201,34 @@ button {
     height: 30px;
 }
 
+
 #Retro {
     display: flex;
     padding-top: 20px;
+    /* border: 1px solid yellowgreen; */
+    height: fit-content;
+    width: 95%;
+    justify-content: space-between;
+
+}
+
+#img1 img {
+    width: 100%;
+}
+
+#img1 {
+    /* border: 1px solid red; */
+    width: 48%;
+}
+
+
+#img2>img {
+    width: 100%;
+}
+
+#img2 {
+    /* border: 1px solid blueviolet; */
+    width: 48%;
 }
 
 #Trending {
@@ -212,6 +237,7 @@ button {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 28px;
 }
+
 
 .textImg1 {
     position: absolute;
@@ -273,9 +299,10 @@ button {
     outline: none;
 }
 
-.shopbutton a{
+.shopbutton a {
     color: black;
 }
+
 .Always_Iconic {
     position: relative;
     margin-left: 45px;
@@ -323,8 +350,8 @@ left: 3%; */
 }
 
 .Always-Shoes img {
-    height: 300px;
-    width: 245px;
+    height: 314px;
+    width: 250px;
     padding-right: 5px;
 }
 
