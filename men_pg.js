@@ -530,7 +530,6 @@ function ShowProduct(products) {
 
         localStorage.setItem("DescProd", JSON.stringify(product_pg));
         window.location.href = "description.html";
-
     }
 }
 

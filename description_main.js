@@ -111,40 +111,169 @@ var sizesContainer = document.getElementById('SizeBox');
 // });
 
 
-var menProducts = JSON.parse(localStorage.getItem("DescProd"));
-console.log(menProducts);
 
-displayProduct(menProducts);
 
-function displayProduct(elem) {
-    menProducts.filter(function (elem) {
-        var img = document.getElementById("img_link");
-        img.setAttribute("src", elem.imgUrl);
-        console.log(img);
+const fetchData = () => {
+    // data fatch from url 
+    // const data = await fetch(url);
+    // const json = await data.json();
+    // console.log(json, "body");
+    // const detail = json?.product;
 
-        var name = document.getElementById("Namebox");
-        name.textContent = elem.name;
-        console.log(name);
+    const imageElements = document.querySelectorAll(".small_img");
+    const primary_img = document.querySelector(".pri_img");
+    const vendor = document.querySelector(".product_vendor");
+    const title = document.querySelector(".product_title")
+    const price = document.querySelector(".product_price");
+    const comp_price = document.querySelector(".product_Comp_price");
+    const color = document.querySelector(".product_color");
+    const size = document.querySelector(".product_size");
+    const disc = document.querySelector(".discount");
+    const desc = document.querySelector(".product_desc");
 
-        var category = document.getElementById("cathBox");
-        category.textContent = elem.category;
-        console.log(category);
+    var menProducts = JSON.parse(localStorage.getItem("DescProd"));
+    console.log(menProducts, "MEN PRODUCT");
 
-        var Price = document.getElementById("PriceBox");
-        Price.textContent = "MRP : Rs " + elem.Price;
-        console.log(Price);
+    const size_box = menProducts[0]?.Size;
+    console.log(menProducts[0].brand);
 
-        var size = document.getElementById("SizeBox");
-        // console.log(size);
-        var elemSize = elem.Size;
-        // console.log(elemSize);
+    vendor.innerHTML = menProducts[0].brand;
+    title.innerHTML = menProducts[0].name;
+    price.innerHTML = menProducts[0].Price + ".00";
+    var org_price = menProducts[0].Price / (1 - 0.35)
+    console.log(org_price);
+    comp_price.innerHTML = Math.trunc(org_price) + ".00";
 
-        elemSize.forEach(Size => {
-            // console.log(Size);
-            var label = document.createElement('button');
-            label.textContent = Size;
-            sizesContainer.appendChild(label);
+
+    // Calculate the percentage discount
+
+    let discount = 19999 - 12999;
+    let discountPercentage = 0;
+    discountPercentage = (discount / 19999) * 100;
+    console.log(discountPercentage);
+    disc.innerHTML = Math.trunc(discountPercentage) + "%" + " Off";
+
+
+    // Update the src attribute for each image class small_img
+
+    const newSrc = (menProducts[0].imgUrl);
+    primary_img.src = newSrc;
+
+
+    // let selectedButtons = null;
+    let selectedButtonColor = null;
+    //  Each color display  
+
+    // color_box.forEach((colorObj) => {
+    //     const colorName = Object.keys(colorObj)[0];
+    //     const colorValue = colorObj[colorName];
+    //     // creating div 
+    //     const color_Cont = document.createElement('div');
+    //     color_Cont.classList.add('color_cont');
+    //     color_Cont.style.background = colorValue;
+
+    //     color_Cont.addEventListener('click', function () {
+    //         if (selectedButtons !== null) {
+    //             selectedButtons.classList.remove('clicked');
+    //         }
+    //         this.classList.add('clicked');
+    //         selectedButtons = this;
+    //         selectedButtonColor = colorName;
+    //         console.log(selectedButtonColor);
+    //     });
+
+    //     // append to color_cont
+    //     color.appendChild(color_Cont);
+    // })
+
+    // Each size display 
+    let selectedButton = null;
+    let selectedButtonValue = null;
+
+    size_box.forEach((sizeObj) => {
+        const sizeName = Object.keys(sizeObj)[0];
+        const sizeValue = sizeObj[sizeName];
+
+        const size_cont = document.createElement('button');
+        size_cont.classList.add('Size_cont');
+        size_cont.textContent = `${sizeValue}`;
+
+        size_cont.addEventListener('click', function () {
+            if (selectedButton !== null) {
+                selectedButton.classList.remove('selected');
+            }
+            this.classList.add('selected');
+            selectedButton = this;
+            selectedButtonValue = sizeValue;
+            console.log(selectedButtonValue);
         });
 
+        size.appendChild(size_cont);
     })
+
+    // add to cart display 
+    const addToCartButton = document.querySelector('.addtobag');
+    const cartMessage = document.getElementById('cartMessage');
+
+    addToCartButton.addEventListener('click', function () {
+        // Check if the product is selected
+        if (selectedButtonValue && counterValue >= 1) {
+            // Display the cart message
+            cartMessage.textContent = `${menProducts[0].name} ${menProducts[0].category} with Size ${selectedButtonValue} added to cart`;
+            cartMessage.style.display = 'block';
+
+            // Check if localStorage is supported
+            if (typeof (Storage) !== "undefined") {
+                // Retrieve selected products from localStorage
+                let selectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
+
+                // Add the selected product to the array
+                selectedProducts.push({
+                    productName: menProducts[0].name,
+                    productSize: selectedButtonValue,
+                    productCount: counterValue
+                });
+
+                console.log(selectedProducts);
+                // Save the updated array back to localStorage
+                localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
+
+                // Alert the user that the product has been added to the cart
+                alert('Product added to cart!');
+            } else {
+                // Alert the user if localStorage is not supported
+                alert('Sorry, your browser does not support web storage. Please try a different browser.');
+            }
+        } else {
+            // Alert the user if the product is not selected
+            alert('Please select Quantity and Size before adding to cart.');
+        }
+    });
+
+
+
+    // Check if localStorage is supported by the browser
+
+};
+fetchData();
+
+// counter of add quantity of product 
+let counterValue = 0;
+const counterElement = document.getElementById('counter');
+function updateCounterDisplay() {
+    counterElement.textContent = counterValue;
 }
+
+function addProduct() {
+    counterValue++;
+    updateCounterDisplay();
+}
+
+function subProduct() {
+    if (counterValue > 0) {
+        counterValue--;
+        updateCounterDisplay();
+    }
+}
+
+

@@ -121,10 +121,6 @@ products.forEach(product => {
     always_shoes.appendChild(link);
     console.log(link);
 
-    // const displayName = document.createElement('h');
-    // displayName.textContent = product.name;
-    // always_shoes.appendChild(displayName);
-    // console.log(displayName);
 
 });
 
