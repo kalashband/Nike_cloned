@@ -120,13 +120,11 @@ const fetchData = () => {
     // console.log(json, "body");
     // const detail = json?.product;
 
-    const imageElements = document.querySelectorAll(".small_img");
     const primary_img = document.querySelector(".pri_img");
     const vendor = document.querySelector(".product_vendor");
     const title = document.querySelector(".product_title")
     const price = document.querySelector(".product_price");
     const comp_price = document.querySelector(".product_Comp_price");
-    const color = document.querySelector(".product_color");
     const size = document.querySelector(".product_size");
     const disc = document.querySelector(".discount");
     const desc = document.querySelector(".product_desc");
@@ -231,7 +229,10 @@ const fetchData = () => {
                 selectedProducts.push({
                     productName: menProducts[0].name,
                     productSize: selectedButtonValue,
-                    productCount: counterValue
+                    productCount: counterValue,
+                    img_url: menProducts[0].imgUrl,
+                    productCate: menProducts[0].category,
+                    productPrice: menProducts[0].Price
                 });
 
                 console.log(selectedProducts);
@@ -249,8 +250,6 @@ const fetchData = () => {
             alert('Please select Quantity and Size before adding to cart.');
         }
     });
-
-
 
     // Check if localStorage is supported by the browser
 
